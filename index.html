@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Simple Converter</title>
+		
+	</head> 
+    <body>
+   
+        
+        Unit 1: <input type="number" id="input1"/>
+      
+        <select id="unit1">
+            <option selected>Select a unit</option>
+            <option>Grams</option>
+            <option>Kilograms</option>
+            <option>Pounds</option>
+        </select><br><br>
+        
+         
+
+       Unit 2: <input type="number" id="input2"/>
+       
+        <select id="unit2">
+            <option selected>Select a unit</option>
+            <option>Grams</option>
+            <option>Kilograms</option>
+            <option>Pounds</option>
+        </select>
+        <br><br>
+        <input type="button" value="Convert" onclick="Convert()">
+
+        <script>
+            
+            function Convert() {
+                let input1 = document.getElementById("input1");
+                let input2 = document.getElementById("input2");
+                let unit1 = document.getElementById("unit1");
+                let unit2 = document.getElementById("unit2");
+                let unit1text = unit1.options[unit1.selectedIndex].text;
+                let unit2text = unit2.options[unit2.selectedIndex].text;
+                
+                if(unit1text==="Kilograms") {
+                    if(unit2text==="Grams")input2.value=parseFloat(input1.value*1000);
+                    if(unit2text==="Pounds")input2.value=parseFloat(input1.value*2.205); 
+                    if(unit2text==="Kilograms")alert("Please Select a different unit"); 
+                }
+
+                if(unit1text==="Grams") {
+                    if(unit2text==="Kilograms")input2.value=parseFloat(input1.value*0.001);
+                    if(unit2text==="Pounds")input2.value=parseFloat(input1.value*0.0022); 
+                    if(unit2text==="Grams")alert("Please Select a different unit"); 
+                }
+
+                if(unit1text==="Pounds") {
+                    if(unit2text==="Kilograms")input2.value=parseFloat(input1.value*0.454);
+                    if(unit2text==="Grams")input2.value=parseFloat(input1.value*453.6); 
+                    if(unit2text==="Pounds")alert("Please Select a different unit"); 
+                }
+            }
+        </script>
+
+</body>
+    </html>
